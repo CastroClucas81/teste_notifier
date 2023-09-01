@@ -1,0 +1,50 @@
+{
+    "status": 0,
+    "success": true,
+    "dataCount": 0,
+    "totalDataCount": 0,
+    "data": [
+        {
+            "id": "7a178ba1-582b-4da0-b6e7-93f90a67491e",
+            "nome": "Gasolina"
+        },
+        {
+            "id": "19e32e14-6e4e-4fa7-b2d4-c8c992a0b705",
+            "nome": "Etanol"
+        },
+        {
+            "id": "e2648df7-721f-4eac-8ed0-5968d3a59a0c",
+            "nome": "Diesel"
+        },
+        {
+            "id": "f20f0d25-578c-4e16-9b46-5c22b9b5d537",
+            "nome": "Gás Natural"
+        },
+        {
+            "id": "453e2279-35d7-486d-b13d-7b6eaa211d8b",
+            "nome": "Biodiesel"
+        },
+        {
+            "id": "9784685c-e20b-4320-906d-0e0d37a73562",
+            "nome": "Eletricidade"
+        },
+        {
+            "id": "67c4e4c5-28a2-43e6-90e0-63ff3727a197",
+            "nome": "Hidrogênio"
+        },
+        {
+            "id": "a0d3e0c1-bf5c-49c5-bcf1-9e7f8a463eb5",
+            "nome": "Flex (Álcool/Gasolina)"
+        },
+        {
+            "id": "d6a4e50e-3d17-44a6-9a3a-53c4b9a1a109",
+            "nome": "GNV (Gás Natural Veicular)"
+        },
+        {
+            "id": "51a94c17-5e2a-4e54-9b8f-d52d67f54c7e",
+            "nome": "Bicombustível"
+        }
+    ],
+    "requestDate": "2023-08-30T19:34:36.372Z",
+    "traceId": "string"
+}

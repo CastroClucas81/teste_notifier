@@ -1,0 +1,30 @@
+{
+    "status": 0,
+    "success": true,
+    "dataCount": 0,
+    "totalDataCount": 0,
+    "data": [
+        {
+            "id": "821fc4d2-31f8-4ff6-ba4a-908c6cc065c8",
+            "nome": "Carro de Passageiros"
+        },
+        {
+            "id": "6c0c3f79-65a3-4e3c-8879-948c3470ce05",
+            "nome": "SUV"
+        },
+        {
+            "id": "d5ec4eb9-e2e2-47c4-bf63-03e1c33b7a63",
+            "nome": "Caminhão"
+        },
+        {
+            "id": "0e22d23b-4d0e-4022-b6f5-e91feef6ec36",
+            "nome": "Motocicleta"
+        },
+        {
+            "id": "22d4c92e-3d42-4d8b-9510-1676ebaf86bb",
+            "nome": "Ônibus"
+        }
+    ],
+    "requestDate": "2023-08-30T19:34:36.372Z",
+    "traceId": "string"
+}

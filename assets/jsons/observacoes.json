@@ -1,0 +1,30 @@
+{
+    "status": 0,
+    "success": true,
+    "dataCount": 0,
+    "totalDataCount": 0,
+    "data": [
+        {
+            "id": "d9f9e924-48db-4321-bb3b-1840d43772a7",
+            "nome": "IPVA Pago"
+        },
+        {
+            "id": "123db938-1e54-4e59-90e2-70e94a1c9386",
+            "nome": "Baixa KM"
+        },
+        {
+            "id": "5a7dfb99-c382-4a5b-9fb7-7c98cf46df45",
+            "nome": "Nenhuma Batida"
+        },
+        {
+            "id": "f5d23d4c-e702-47a9-b57d-d5a751db017c",
+            "nome": "Único Dono"
+        },
+        {
+            "id": "e8b82c3b-5b4c-4a4c-bb15-1b6e0c179fa1",
+            "nome": "Revisões em Dia"
+        }
+    ],
+    "requestDate": "2023-08-30T19:34:36.372Z",
+    "traceId": "string"
+}

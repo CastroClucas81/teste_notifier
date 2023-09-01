@@ -1,0 +1,50 @@
+{
+    "status": 0,
+    "success": true,
+    "dataCount": 0,
+    "totalDataCount": 0,
+    "data": [
+        {
+            "id": "7f96c30a-4f2e-43f5-8b48-cd39edf2aa4c",
+            "nome": "Vermelho"
+        },
+        {
+            "id": "2a2c2e16-935d-42a6-99b4-82b457b17ea6",
+            "nome": "Azul"
+        },
+        {
+            "id": "43845a0f-9fc4-4c91-9be9-0e509615a8eb",
+            "nome": "Verde"
+        },
+        {
+            "id": "1ff6e7a5-5d4d-4c6e-a61e-00788e405b0c",
+            "nome": "Amarelo"
+        },
+        {
+            "id": "d8da408e-4b68-4b0c-9ea7-1569f5586d69",
+            "nome": "Roxo"
+        },
+        {
+            "id": "c3bb3549-27d3-4f1d-9ad0-e7387b2388e3",
+            "nome": "Laranja"
+        },
+        {
+            "id": "ecb0c3a5-d487-4ce5-8db6-4be308f6bb7c",
+            "nome": "Branco"
+        },
+        {
+            "id": "f76f894d-78ec-47b3-a403-875d1f18d995",
+            "nome": "Preto"
+        },
+        {
+            "id": "30890d84-83a1-43d2-9b3a-d6b8feada64e",
+            "nome": "Cinza"
+        },
+        {
+            "id": "6d60bb7b-9a34-4996-9783-30d1a89be168",
+            "nome": "Marrom"
+        }
+    ],
+    "requestDate": "2023-08-30T19:34:36.372Z",
+    "traceId": "string"
+}
