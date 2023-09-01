@@ -20,6 +20,7 @@ class TipoDeCombustivelScreen extends StatefulWidget {
 class _TipoDeCombustivelScreenState extends State<TipoDeCombustivelScreen> {
   @override
   void initState() {
+    widget.args.jornadaDaAvaliacaoPageViewArgs.updateBottonButtonsArgs();
     context.read<TipoDeCombustivelCubit>().init();
     super.initState();
   }

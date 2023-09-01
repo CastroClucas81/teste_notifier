@@ -7,10 +7,19 @@ class JornadaDaAvaliacaoPageViewArgs {
   final void Function({required int pageIndex}) goToPage;
   final JornadaDaAvaliacaoScreenEnum jornadaDaAvaliacaoScreen;
 
+  final void Function({
+    VoidCallback? goPrevious,
+    VoidCallback? goToResume,
+    VoidCallback? goNext,
+    bool? showNext,
+    bool? showPrevious,
+  }) updateBottonButtonsArgs;
+
   JornadaDaAvaliacaoPageViewArgs({
     required this.goNext,
     required this.goPrevious,
     required this.goToPage,
     required this.jornadaDaAvaliacaoScreen,
+    required this.updateBottonButtonsArgs,
   });
 }

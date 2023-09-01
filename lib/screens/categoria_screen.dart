@@ -19,6 +19,7 @@ class CategoriaScreen extends StatefulWidget {
 class _CategoriaScreenState extends State<CategoriaScreen> {
   @override
   void initState() {
+    widget.args.jornadaDaAvaliacaoPageViewArgs.updateBottonButtonsArgs();
     context.read<CategoriaCubit>().init();
     super.initState();
   }

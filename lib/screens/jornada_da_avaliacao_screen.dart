@@ -3,6 +3,7 @@ import 'package:teste_notifier/args/categoria_args.dart';
 import 'package:teste_notifier/args/cor_args.dart';
 import 'package:teste_notifier/args/jornada_da_avaliacao_args.dart';
 import 'package:teste_notifier/args/jornada_da_avaliacao_page_view_args.dart';
+import 'package:teste_notifier/args/jornada_da_avaliacao_page_view_botton_buttons_args.dart';
 import 'package:teste_notifier/args/observacao_args.dart';
 import 'package:teste_notifier/args/quilometragem_args.dart';
 import 'package:teste_notifier/args/resumo_args.dart';
@@ -45,6 +46,8 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
   late final ValueNotifier<String> _anoModelo;
   late final ValueNotifier<String> _marca;
   late final ValueNotifier<String> _modelo;
+  late final ValueNotifier<JornadaDaAvaliacaoPageViewBottonButtonsArgs>
+      _jornadaDaAvaliacaoPageViewBottonButtonsArgs;
   final _currentPage = ValueNotifier<JornadaDaAvaliacaoScreenEnum>(
       JornadaDaAvaliacaoScreenEnum.quilometragem);
   final _pageViewController = PageController();
@@ -62,6 +65,26 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
     await _pageViewController.previousPage(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeIn,
+    );
+  }
+
+  void _goToResumo() {
+    Coordinator.goToResumo(
+      args: ResumoArgs(
+        goToPage: _goToPage,
+        jornadaDaAvaliacao: JornadaDaAvaliacaoEntity(
+          quilometragem: _quilometragem.value,
+          cambio: _cambio.value,
+          categoria: _categoria.value,
+          cor: _cor.value,
+          observacoes: _observacoes.value,
+          tipoDeCombustivel: _tipoDeCombustivel.value,
+          anoFabricacao: _anoFabricacao.value,
+          anoModelo: _anoModelo.value,
+          marca: _marca.value,
+          modelo: _modelo.value,
+        ),
+      ),
     );
   }
 
@@ -86,9 +109,38 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
     _modelo = ValueNotifier<String>(jornadaDaAvaliacao.modelo);
   }
 
+  void _handleBottonButtonsArgs({
+    VoidCallback? goPrevious,
+    VoidCallback? goToResume,
+    VoidCallback? goNext,
+    bool? showNext,
+    bool? showPrevious,
+  }) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _jornadaDaAvaliacaoPageViewBottonButtonsArgs.value =
+          _jornadaDaAvaliacaoPageViewBottonButtonsArgs.value.copyWith(
+        goNext: goPrevious ?? _goNext,
+        goPrevious: goNext ?? _goPrevious,
+        goToResume: goToResume ?? _goToResumo,
+        showNext: showNext ?? true,
+        showPrevious: showPrevious ?? true,
+      );
+    });
+  }
+
   @override
   void initState() {
     _handleValueNotifiers();
+
+    _jornadaDaAvaliacaoPageViewBottonButtonsArgs =
+        ValueNotifier<JornadaDaAvaliacaoPageViewBottonButtonsArgs>(
+      JornadaDaAvaliacaoPageViewBottonButtonsArgs(
+        goPrevious: _goPrevious,
+        goNext: _goNext,
+        goToResume: _goToResumo,
+      ),
+    );
+
     super.initState();
   }
 
@@ -119,6 +171,7 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
                     goNext: _goNext,
                     goPrevious: _goPrevious,
                     goToPage: _goToPage,
+                    updateBottonButtonsArgs: _handleBottonButtonsArgs,
                   );
 
                   switch (jornadaDaAvaliacaoScreen) {
@@ -172,38 +225,19 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
                 },
               ),
             ),
-            ValueListenableBuilder<JornadaDaAvaliacaoScreenEnum>(
-              valueListenable: _currentPage,
-              builder: (context, currentPage, _) {
+            //_jornadaDaAvaliacaoPageViewBottonButtons
+            ValueListenableBuilder<JornadaDaAvaliacaoPageViewBottonButtonsArgs>(
+              valueListenable: _jornadaDaAvaliacaoPageViewBottonButtonsArgs,
+              builder: (context, pageViewBttonButtons, _) {
                 return JornadaDaAvaliacaoBottonButtons(
-                  goToResume: () {
-                    Coordinator.goToResumo(
-                      args: ResumoArgs(
-                        goToPage: _goToPage,
-                        jornadaDaAvaliacao: JornadaDaAvaliacaoEntity(
-                          quilometragem: _quilometragem.value,
-                          cambio: _cambio.value,
-                          categoria: _categoria.value,
-                          cor: _cor.value,
-                          observacoes: _observacoes.value,
-                          tipoDeCombustivel: _tipoDeCombustivel.value,
-                          anoFabricacao: _anoFabricacao.value,
-                          anoModelo: _anoModelo.value,
-                          marca: _marca.value,
-                          modelo: _modelo.value,
-                        ),
-                      ),
-                    );
-                  },
-                  goNext: _goNext,
-                  goPrevious: _goPrevious,
-                  showNext:
-                      currentPage != JornadaDaAvaliacaoScreenEnum.observacoes,
-                  showPrevious:
-                      currentPage != JornadaDaAvaliacaoScreenEnum.quilometragem,
+                  goToResume: pageViewBttonButtons.goToResume,
+                  goNext: pageViewBttonButtons.goNext,
+                  goPrevious: pageViewBttonButtons.goPrevious,
+                  showNext: pageViewBttonButtons.showNext,
+                  showPrevious: pageViewBttonButtons.showPrevious,
                 );
               },
-            )
+            ),
           ],
         ),
       ),
@@ -223,6 +257,7 @@ class _JornadaDaAvaliacaoScreenState extends State<JornadaDaAvaliacaoScreen> {
     _anoModelo.dispose();
     _marca.dispose();
     _modelo.dispose();
+    _jornadaDaAvaliacaoPageViewBottonButtonsArgs.dispose();
     super.dispose();
   }
 }

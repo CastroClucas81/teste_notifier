@@ -19,6 +19,7 @@ class ObservacaoScreen extends StatefulWidget {
 class _ObservacaoScreenState extends State<ObservacaoScreen> {
   @override
   void initState() {
+    widget.args.jornadaDaAvaliacaoPageViewArgs.updateBottonButtonsArgs();
     context.read<ObservacaoCubit>().init();
     super.initState();
   }

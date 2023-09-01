@@ -19,8 +19,16 @@ class _QuilometragemScreenState extends State<QuilometragemScreen> {
 
   @override
   void initState() {
+    widget.args.jornadaDaAvaliacaoPageViewArgs
+        .updateBottonButtonsArgs(showPrevious: false);
     _quilometragemController.text = widget.args.quilometragem.value.toString();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _quilometragemController.dispose();
+    super.dispose();
   }
 
   @override
@@ -56,11 +64,5 @@ class _QuilometragemScreenState extends State<QuilometragemScreen> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _quilometragemController.dispose();
-    super.dispose();
   }
 }
